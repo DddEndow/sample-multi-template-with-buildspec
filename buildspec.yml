@@ -13,7 +13,7 @@ phases:
       - echo "Building ..."
       - cd sam-app
       - sam build
-      - sam package --s3-bucket ${S3_BUCKET} --output-template-file packaged-template.ym --kms-key-id ${KMS_KEY_ID}
+      - sam package --s3-bucket ${S3_BUCKET} --output-template-file packaged-template.yml --kms-key-id ${KMS_KEY_ID}
 artifacts:
   type: zip
   files:
