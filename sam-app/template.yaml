@@ -5,6 +5,12 @@ Description: >
 
   Sample SAM Template for sam-app
 
+Parameters:
+  FunctionName:
+    Description: "Name of the Lambda"
+    Type: "String"
+    Default: "HelloWorld"
+
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
@@ -14,6 +20,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
+      FunctionName: !Ref FunctionName
       CodeUri: hello_world/
       Handler: app.lambda_handler
       Runtime: python3.8
