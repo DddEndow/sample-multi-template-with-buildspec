@@ -11,11 +11,10 @@ phases:
   build:
     commands:
       - echo "Building ..."
-      - echo ${S3_BUCKET}
       - cd sam-app
       - sam build
-#      - sam package --s3-bucket ${S3_BUCKET} --output-template-file packaged-template.yml
-      - sam package --s3-bucket codepipeline-eu-west-2-834625106024 --output-template-file packaged-template.yml
+      - sam package --s3-bucket ${S3_BUCKET} --output-template-file packaged-template.ym --kms-key-id ${KMS_KEY_ID}
 artifacts:
+  type: zip
   files:
-    - packaged-template.yml
+    - sam-app/packaged-template.yml
