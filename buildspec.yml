@@ -11,9 +11,10 @@ phases:
   build:
     commands:
       - echo "Building ..."
+      - echo ${S3_BUCKET}
       - cd sam-app
       - sam build
-      - sam package --s3-bucket $S3_BUCKET --output-template-file packaged-template.yml
+      - sam package --s3-bucket ${S3_BUCKET} --output-template-file packaged-template.yml
 artifacts:
   files:
     - packaged-template.yml
